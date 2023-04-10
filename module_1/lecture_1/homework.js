@@ -1,6 +1,5 @@
 class BitAccessor {
     viewArray;
-    #uintVal = 8;
 
     constructor(viewArray) {
         this.viewArray = viewArray;
@@ -46,13 +45,20 @@ class BitAccessor {
         this.viewArray[elementIndex] = changedNum;
     }
 
+    get #elementBitLength() {
+        return this.viewArray.BYTES_PER_ELEMENT * 8
+    }
+
     #validate(elementIndex, bitIndex, value) {  // TODO move to TS Decorators
+        if (!this.viewArray) {
+            throw new Error(`View array is not provided`);
+        }
         const maxIndex = this.viewArray.length - 1;
         if (elementIndex > maxIndex) {
             throw new Error(`View array length is ${this.viewArray.length}. Element index more than ${maxIndex}`);
         }
-        if (bitIndex < 0 || bitIndex > this.#uintVal - 1) {
-            throw new Error(`Incorrect bit index. Bit index should be between 0 and ${this.#uintVal}`);
+        if (bitIndex < 0 || bitIndex > this.#elementBitLength - 1) {
+            throw new Error(`Incorrect bit index. Bit index should be between 0 and ${this.#elementBitLength - 1}`);
         }
         if (value !== undefined && ![0, 1].includes(value)) {
             throw new Error('Value should be 0 or 1');
@@ -61,7 +67,7 @@ class BitAccessor {
 }
 
 
-const bitAccessor = new BitAccessor([0b1110, 0b1101])
+const bitAccessor = new BitAccessor(new Uint8Array([0b1110, 0b1101]))
 
 console.log(bitAccessor.getElementBit(0, 1)) // 1
 bitAccessor.inverseElementBit(1, 0)
