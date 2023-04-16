@@ -122,6 +122,7 @@ console.log(list.first.next.value); // Mixa
 console.log(list.first.next.prev.value); // Andrey
 
 
+console.log('Iter list:');
 for (const el of list) {
-    console.log(el)
+    console.log(el);
 }
