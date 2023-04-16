@@ -98,6 +98,13 @@ export class DoublyLinkedList<T> {
        return this.first === null;
     }
 
+    *[Symbol.iterator]() {
+        let current = list.first;
+        while (!list.isEmpty() && current) {
+            yield current.value;
+            current = current.next;
+        }
+    }
 }
 
 
@@ -114,3 +121,7 @@ list.first.next.display(); // Mixa
 console.log(list.first.next.value); // Mixa
 console.log(list.first.next.prev.value); // Andrey
 
+
+for (const el of list) {
+    console.log(el)
+}

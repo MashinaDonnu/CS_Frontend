@@ -6,9 +6,10 @@ import './modules/BitAccessor/BitAccessor';
 import img from './img/darth.jpeg';
 import {inverse, grayscaled} from './modules/CanvasFilter/CanvasFilter';
 import './modules/EncodeDecode/EncodeDecode';
-import './modules/LinkedList'
+import './modules/DoublyLinkedList'
 
 (async function canvasFilter(): Promise<void> {
     const canvasCtx = await grayscaled(img);
     await inverse(canvasCtx);
 }());
+
