@@ -99,8 +99,8 @@ export class DoublyLinkedList<T> {
     }
 
     *[Symbol.iterator]() {
-        let current = list.first;
-        while (!list.isEmpty() && current) {
+        let current = this.first;
+        while (current) {
             yield current.value;
             current = current.next;
         }
