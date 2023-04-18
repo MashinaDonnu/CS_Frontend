@@ -8,6 +8,7 @@ import {inverse, grayscaled} from './modules/CanvasFilter/CanvasFilter';
 import './modules/EncodeDecode/EncodeDecode';
 import './modules/DoublyLinkedList';
 import './modules/ArrayBufferStructure/ArrayBufferStructure';
+import './modules/LinkedListQueue/LinkedListQueue'
 
 (async function canvasFilter(): Promise<void> {
     const canvasCtx = await grayscaled(img);
