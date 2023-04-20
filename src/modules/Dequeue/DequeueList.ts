@@ -1,7 +1,7 @@
 import {IDequeue} from "./interface";
 import {DoublyLinkedList} from "../DoublyLinkedList/DoublyLinkedList";
 
-export class DequeueList<T> implements IDequeue<T>{
+export class DequeueList<T> implements IDequeue<T> {
     #list = new DoublyLinkedList<T>();
 
     pop(): T {

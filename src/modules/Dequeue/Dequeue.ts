@@ -2,7 +2,7 @@ import {IDequeue} from "./interface";
 import {DequeueArray} from "./DequeueArray";
 import {DequeueList} from "./DequeueList";
 
-export class Dequeue<T> implements IDequeue<T>{
+export class Dequeue<T> implements IDequeue<T> {
     #strategy: IDequeue<T>
 
     constructor(instance: IDequeue<T>) {
@@ -29,6 +29,7 @@ export class Dequeue<T> implements IDequeue<T>{
 
 
 // const dequeue = new Dequeue(new DequeueArray(10))
+// Or
 const dequeue = new Dequeue(new DequeueList());
 dequeue.push(10);
 dequeue.unshift(11);
