@@ -15,7 +15,7 @@ module.exports = {
     target,
     devtool,
     devServer: {
-        port: 3000,
+        port: 4100,
         open: true,
         hot: true
     },
